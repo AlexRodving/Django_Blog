@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+   background-color: white;
+}
+/* ---------------------- Меню ------------------------- */
+.menu{
+    position: fixed;
+    width: 98%;
+    height: max-content;
+    background-color: rgb(0, 153, 255);
+    display: flex;
+    padding: 10px 10px 10px;
+    box-shadow: 0px 5px 5px black;
+    border-radius: 10px;
+    margin-left: 10px;
+    color: white;
+}
+.nav{
+    margin-left: 20px;
+    display: flex;
+}
+.reg{
+    margin-left: auto;
+    display: flex;
+    margin-right: 20px;
+}
+.menu li{
+    height: max-content;
+    margin-left: 20px;
+    list-style-type: none;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 3px;
+}
+
+.menu a{
+    text-decoration: none;
+    color: white;
+    transition: transform .6s ease;
+}
+
+.menu li:hover, .menu a:hover{
+    color: black;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+.menu li:active, .menu a:active{
+    color: red;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+main{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+footer{
+    position: fixed;
+    width: 100%;
+    bottom: 46px;
+}
+
+footer .menu{
+    box-shadow: 0 0, 0px -5px 5px black;
+}
+
+.card{
+    width: 90%;
+    border: 1px solid;
+    box-shadow: 5px 5px 5px black;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 10px;
+}
+.text_post{
+    text-align: center;
+}
