@@ -6,13 +6,13 @@
 
 ### install virtual environment:
   
-  python -m venv <name VE>
+  python -m venv [name VE]
   
 ### start virtual environment:
   Linux:
-        source <name>/bin/activate
+        source [name VE]/bin/activate
   Win:
-        <name>\Scripts\activate.bat
+        [name VE]\Scripts\activate.bat
        
 ### open folder my_blog
 
