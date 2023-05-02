@@ -6,7 +6,7 @@
 
 ### install virtual environment:
   
-  python -m venv [name VE]
+        python -m venv [name VE]
   
 ### start virtual environment:
 
