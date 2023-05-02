@@ -1,20 +1,20 @@
 # Django_Blog
 
-##Minimal Starter
+## Minimal Starter
 
-install Python v3 <
+### install Python v3 <
 
-install virtual environment:
+### install virtual environment:
   
   python -m venv <name VE>
   
-start virtual environment:
+### start virtual environment:
   Linux:
         source <name>/bin/activate
   Win:
         <name>\Scripts\activate.bat
        
-open folder my_blog
+### open folder my_blog
 
-start server:
+### start server:
         python manager.py runserver
