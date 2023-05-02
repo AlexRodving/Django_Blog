@@ -2,7 +2,7 @@
 
 ## Minimal Starter
 
-### install Python v3 <
+### install Python v3 >
 
 ### install virtual environment:
   
