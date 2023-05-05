@@ -55,6 +55,7 @@ body{
 }
 /* ----------- Основной контент --------------- */
 main{
+    background-color: white;
     width: 60%;
     margin-left: auto;
     margin-right: auto;
@@ -84,6 +85,9 @@ footer p{
 
 /* ------------------ Карточка постов --------------*/
 .card{
+    background-color: rgb(185, 180, 180);
+    margin-left: auto;
+    margin-right: auto;
     width: 90%;
     border: 1px solid;
     box-shadow: 5px 5px 5px black;
