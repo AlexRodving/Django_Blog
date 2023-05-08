@@ -1,0 +1,26 @@
+<!-- Страница обработки форма, форма может быть и не наотдельной стр. -->
+{% extends "blog/layout.html" %}
+
+{% block title%}Добавление статьи{% endblock %}
+
+{% block content %}
+<main>
+    <div class="card_form">
+        <h3>Forms create</h3><br>
+        <!-- Обьявление фомы и её метода -->
+        <form method="post">
+            <!-- Обязательный элементы для формы иначе не отправится -->
+            {% csrf_token %}  
+            <!-- Поля формы описаные в forms.py -->
+            {{ form.title }}<br><br>
+            {{ form.anons }}<br><br>
+            {{ form.text }}<br><br>
+            {{ form.date }}<br><br>
+            <!-- Вывод оибки -->
+            <span>{{ error }}</span><br>
+            <!-- Кнопка отправки формы, обязательный тип "submit" -->
+            <button type="submit">Сохранить</button><br>
+        </form>
+    </div>
+</main>
+{% endblock %}
