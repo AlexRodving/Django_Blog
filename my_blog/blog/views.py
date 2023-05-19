@@ -2,9 +2,9 @@ from django.shortcuts import render, redirect #redirect - перенаправл
 from .models import Post
 from django.views.generic import DetailView #подключить для динамических страниц
 from .forms import PostForm                 #импорт формы из forms.py
-
+import requests                             #для отправки запросов
 # Create your views here.
-
+BASE_URL = 'https://dummyjson.com/products'
 # posts = [
 # 	{
 #     	'author': 'Администратор',
@@ -21,7 +21,11 @@ from .forms import PostForm                 #импорт формы из forms.
 # ]
 
 def home(request):
-    return render(request, 'blog/index.html')
+    response = requests.get(f"{BASE_URL}") #GET запрос
+    resp = {
+        'resp': response.json()
+    }
+    return render(request, 'blog/index.html', resp)
 
 def about(request):
     return render(request, 'blog/about.html')
