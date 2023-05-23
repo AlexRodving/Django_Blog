@@ -8,31 +8,68 @@
 </head>
 <body>
     <div id="list"></div>
+    <form id="post_form" method="post">
+        <input type="hidden" id="id" id="id">
+        <p>Заголовок: <input id="title"></p>
+        <p>Анонс: <input id="anons"></p>
+        <p>Текст: <input type="text" id="text"></p>
+        <p>Дата: <input type="datetime" id="date"></p>
+        <p><input type="reset" value="Очистить">
+        <input type="submit" value="Сохранить"></p>
+        </form>
 </body>
 <script>
-const domain = 'http://localhost:8000/';
-let list = document.getElementById('list')
-let listLoader = new XMLHttpRequest();
-listLoader.addEventListener('readystatechange', () => {
-if (listLoader.readyState == 4) {
-if (listLoader.status == 200) {
-let data = JSON.parse(listLoader.responseText);
-console.log(data)
-let s = '<ul>', d;
-for (let i = 0; i < data.length; i++) {
-d = data[i];
-s += '<li>' + d.title + '</li>';
-}
-s += '</ul>';
-list.innerHTML = s;
-} else
-window.alert(listLoader.statusText);
-}
-}) ;
-function listLoad() {
-listLoader.open('GET', domain + 'api/posts/', true);
-listLoader.send();
-}
-listLoad();
+    const domain = 'http://localhost:8000/';
+    let list = document.getElementById('list')
+    let listLoader = new XMLHttpRequest();
+    listLoader.addEventListener('readystatechange', () => {
+        if (listLoader.readyState == 4) {
+            if (listLoader.status == 200) {
+                let data = JSON.parse(listLoader.responseText);
+                let s = '<ul>', d;
+                for (let i = 0; i < data.length; i++) {
+                    d = data[i];
+                    s += '<li>' + d.title + '<a href="' + domain + 'api/posts/' + d.id + '" class="detail"> Вывести</li>';    
+                }
+                s += '</ul>';
+                list.innerHTML = s;
+                let links = list.querySelectorAll(' ul li a.detail');
+                links.forEach((link) => { link.addEventListener('click', rubricLoad); });
+            } else
+                window.alert(listLoader.statusText);
+        }
+    });
+    function listLoad(){
+        listLoader.open('GET', domain + 'api/posts/', true);
+        listLoader.send();
+    }
+    listLoad();  
+
+    let id = document.getElementById('id')
+    let title = document.getElementById('title')
+    let anons = document.getElementById('anons')
+    let text = document.getElementById('text')
+    let datein = document.getElementById('date')
+    console.log(datein)
+
+    let rubricLoader = new XMLHttpRequest();
+    rubricLoader.addEventListener('readystatechange', () => {
+        if (rubricLoader.readyState == 4) {
+            if (rubricLoader.status == 200) {
+                let data = JSON.parse(rubricLoader.responseText);
+                id.value = data.id;
+                title.value = data.title;
+                anons.value = data.anons;
+                text.value = data.text;
+                datein.value = data.date;
+            } else
+                window.alert(rubricLoader.statusText);
+        }
+    });
+    function rubricLoad(evt) {
+        evt.preventDefault();
+        rubricLoader.open('GET', evt.target.href, true);
+        rubricLoader.send();
+    }
 </script>
 </html>

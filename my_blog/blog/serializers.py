@@ -4,4 +4,4 @@ from .models import Post
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post                     #Указывваем модель БД
-        fields = ['title','anons','text','date'] #Поля из БД
+        fields = ['id','title','anons','text','date'] #Поля из БД
