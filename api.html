@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+</head>
+<body>
+    <div id="list"></div>
+</body>
+<script>
+const domain = 'http://localhost:8000/';
+let list = document.getElementById('list')
+let listLoader = new XMLHttpRequest();
+listLoader.addEventListener('readystatechange', () => {
+if (listLoader.readyState == 4) {
+if (listLoader.status == 200) {
+let data = JSON.parse(listLoader.responseText);
+console.log(data)
+let s = '<ul>', d;
+for (let i = 0; i < data.length; i++) {
+d = data[i];
+s += '<li>' + d.title + '</li>';
+}
+s += '</ul>';
+list.innerHTML = s;
+} else
+window.alert(listLoader.statusText);
+}
+}) ;
+function listLoad() {
+listLoader.open('GET', domain + 'api/posts/', true);
+listLoader.send();
+}
+listLoad();
+</script>
+</html>
