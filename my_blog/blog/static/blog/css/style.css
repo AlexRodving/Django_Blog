@@ -5,6 +5,7 @@
 
 body{
    background-color: white;
+   height: 100vh;
 }
 /* ---------------------- Меню ------------------------- */
 .menu{
@@ -55,6 +56,7 @@ body{
 }
 /* ----------- Основной контент --------------- */
 main{
+    min-height: calc(78.4vh - 100px);
     background-color: white;
     width: 100%;
     height: auto;
