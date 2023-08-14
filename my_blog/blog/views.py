@@ -7,6 +7,7 @@ import requests                             #для отправки запро�
 from .serializers import PostSerializer    #Rest Api  сериализатор
 from rest_framework.response import Response#Rest Api 
 from rest_framework.decorators import api_view#Rest Api 
+from rest_framework import status
 
 # Create your views here.
 BASE_URL = 'https://dummyjson.com/products'
