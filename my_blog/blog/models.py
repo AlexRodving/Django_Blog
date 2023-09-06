@@ -6,6 +6,7 @@ class Post(models.Model):
     anons = models.CharField('Анонс', max_length=250)
     text = models.TextField('Статья')
     date = models.DateTimeField('Дата публикации')
+    img = models.FileField(upload_to='img/')
 
     def __str__(self):
         return self.title
